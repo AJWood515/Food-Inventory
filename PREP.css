@@ -1,0 +1,48 @@
+#container {
+	width: 95%;
+	height: 90%;
+	border: thin solid black;
+	margin: 0 auto;
+	padding: .5%;
+	background-color: #c0c0c0;
+	border-radius: 1.5em;
+	
+}
+
+header{
+	border-radius: 1.5em 1.5em 0 0;
+	background-color: #4c4cff;
+	border: thin solid black;
+	padding: 0.5%;
+	color: white;
+	text-align: center;
+}
+
+main {
+	width: 75%;
+	background-color: #89cff0;
+	padding: 0.5%;
+	float: right;
+	color: black;
+	border: thin solid black;
+	
+}
+
+aside{
+	width: 21.5%;
+	background-color: #89cff0;
+	padding: 0.5%;
+	float: left;
+	/*margin-right: 1%;*/
+	color: black;
+	border: thin solid black;
+}
+
+footer{
+	color:white;
+	background-color: #4c4cff;
+	text-align: center;
+	clear: both;
+	padding: 0.5%;
+	border-radius: 0 0 1.2em 1.2em;
+}
