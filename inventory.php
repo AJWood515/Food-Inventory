@@ -13,7 +13,7 @@ $query = "Select * from vegetables";
 		<td>ID</td>
 		<td>Vegetable</td>
 		<td>Stock</td>
-
+</table>
 <?php
 
 if ($stmt = $con->prepare($query)) {
