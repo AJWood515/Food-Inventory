@@ -23,7 +23,8 @@ try {
 <?php
     echo "This section of php will compare a recipe table to the calorie table to see if the recipe can be made.<br>
 if it cant be made, it tells you what ingredients you need.<br><br>
-In this case, a cookie recipe that we dont have enough ingredients for.<br><br>";
+In this case, a cookie recipe that we have enough ingredients for.<br><br>
+if we didnt have all the ingredients it would tell you how much of each ingredient you need<br><br>";
     /* this should compare the recipe table to the ingredients list table */
     if ($stmt = $con->prepare($recipeQuery)) {
         $stmt->execute();
