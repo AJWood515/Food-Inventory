@@ -5,23 +5,25 @@
 include "PHP_FoodPantryDatabase_Connection.php";
 
 try {
-    $query = "Select * from calorieTable";
+    $query = "Select * from ingredients";
     /*
-     * in the recipe query 'amount' is trhe cookie recipe version of quantity
+     * in the recipe query 'amount' is the cookie recipe version of quantity
      * I changed the column name to more easily use the search statement in php
      */
-    $recipeQuery = "Select ingredientName,  amount , quantity , unit,  caloriesPerUnit
-                    from cookieRecipe cr, calorieTable ct
-                    where ingredientName = ct.name;";
-    $calorieQuery = "select ingredientName, amount,  caloriesPerUnit
-                     from cookieRecipe cr, calorieTable ct
-                     where cr.ingredientName = ct.name ;";
+    $recipeQuery = "Select ingredientName,  amount , quantity , unit, caloriesPerUnit
+                    from cookieRecipe cr, ingredients i
+                    where cr.ingredientName = i.name
+                    ;";
+    $calorieQuery = "Select ingredientName,  amount , quantity , unit, caloriesPerUnit
+                    from cookieRecipe cr, ingredients i
+                    where cr.ingredientName = i.name
+                    ;";
     $calPerCup;
     $totalCalories = 0;
     
     ?>
 <?php
-    echo "This section of php will compare a recipe table to the calorie table to see if the recipe can be made.<br>
+    echo "This section of php will compare a recipe table to the ingredients table to see if the recipe can be made.<br>
 if it cant be made, it tells you what ingredients you need.<br><br>
 In this case, a cookie recipe that we have enough ingredients for.<br><br>
 if we didnt have all the ingredients it would tell you how much of each ingredient you need<br><br>";
@@ -39,7 +41,7 @@ if we didnt have all the ingredients it would tell you how much of each ingredie
                 // this is some hamfisted math to turn negative numbers positive
                 $needMoreInventory = $needMoreInventory - $needMoreInventory - $needMoreInventory;
                 
-                echo "<td>" . "You need " . $needMoreInventory . " more " . $unit . " of " . $ingredientName . " " . "<br>" . "</td>";
+                echo  "You need " . $needMoreInventory . " more " . $unit . " of " . $ingredientName . " " . "<br>";
             } else {
                 //Adding each items calories to the totalcalories variable
                 $totalCalories = $totalCalories + ($amount * $caloriesPerUnit);
@@ -48,10 +50,10 @@ if we didnt have all the ingredients it would tell you how much of each ingredie
         $stmt->close();
     }
     if ($belowZero < 0) {
-        echo "You need to purchase more ingredients before you can buy this recipe<br>";
+        echo "You need to purchase the listed ingredients before you can make this recipe<br>";
     } else {
         echo "You can make this recipe<br>";
-        echo "There are a total of " . $totalCalories . " in this recipe.<br>";
+        echo "There are a total of " . $totalCalories . " calories in this recipe.<br>";
     }
     ?>
 
@@ -66,14 +68,14 @@ if we didnt have all the ingredients it would tell you how much of each ingredie
 how many calories are in each Item. <br> it will also tell you how many calories there are per cup. <br> <br>";
     if ($stmt = $con->prepare($query)) {
         $stmt->execute();
-        $stmt->bind_result($name, $quantity, $caloriesPerUnit, $quantityOfUnitsPerCup, $unit);
+        $stmt->bind_result($name, $quantity, $caloriesPerUnit, $quantityOfUnitsPerCup, $unit, $ingredientType);
         while ($stmt->fetch()) {
-            echo "<tr>";
+          
             
             $calPerCup = $caloriesPerUnit * $quantityOfUnitsPerCup;
             
-            echo "<td>" . $quantity . " " . $unit . " of " . $name . " has about " . $caloriesPerUnit . " calories " . "<br>" . "</td>";
-            echo "<td>" . "There are approximately " . $calPerCup . " Calories per cup of " . $name . " " . "<br>" . "<br>" . "</td>";
+            echo  $quantity . " " . $unit . " of " . $name . " has about " . $caloriesPerUnit . " calories " . "<br>" ;
+            echo  "There are approximately " . $calPerCup . " Calories per cup of " . $name . " " . "<br>" . "<br>" ;
         }
         $stmt->close();
     }
