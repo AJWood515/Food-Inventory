@@ -97,10 +97,10 @@ if we didnt have all the ingredients it would tell you how much of each ingredie
         
         while ($stmt->fetch()) {
             
-            echo $amount . "<br>";
+          
             $adjuster = checkMeasurements($unitName, $unit, $quantityOfUnitsPerCup); // this function makes sure recipe and ingredients table use the same measurements
             $amount = $adjuster * $amount; // this statement will convert the recipe as needed to be compatible with the inventory table
-            echo $amount . "<br>";
+        
             
             $needMoreInventory = $quantity - $amount; // to see in it would drop inventory below 0
             $belowZero = 0;
