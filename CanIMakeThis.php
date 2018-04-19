@@ -1,10 +1,9 @@
-
 <!Doctype html>
 <head>
 <link rel="stylesheet" href="PREP.css" type="text/css" />
 <link rel="icon" href="images/PrepIcon.png" type="image/gif"
 	sizes="16x16">
-<title>Calorie Counter</title>
+<title>Can I Make This Recipe?</title>
 </head>
 <body>
 	<div id="container">
@@ -15,9 +14,10 @@
 			<ul>
 				<li><a href="home.html">Home</a></li>
 				<li><a href="inventory.php">Inventory</a></li>
-				<li><a href="CanIMakeThis.php">Can I make this Recipe?</a></li>
 				<li><a href="listCalories.php">Calorie Counter</a></li>
 				<li><a class="active">Can I make this Recipe?</a></li>
+				<li><a href="calendar.html">Calendar</a></li>
+				<li><a href="contactUs.html">Contact Us</a></li>
 			</ul>
 		</header>
 		<aside>
