@@ -95,14 +95,14 @@ if it cant be made, it tells you what ingredients you need.<br><br>";
 
 /* this should compare the recipe table to the ingredients list table */
 
-$recipeQuery = "Select ingredientName,  amount , quantity , unit, caloriesPerUnit, unitName
+$recipeQuery = "Select ingredientName,  amount , quantity , unit, quantityOfUnitsPerCup, caloriesPerUnit, unitName
                     from breadRecipe cr, ingredients i
                     where cr.ingredientName = i.name ;";
 
 $belowZero = 0;
 if ($stmt = $con->prepare($recipeQuery)) {
     $stmt->execute();
-    $stmt->bind_result($ingredientName, $amount, $quantity, $unit, $caloriesPerUnit, $unitName);
+    $stmt->bind_result($ingredientName, $amount, $quantity, $unit, $quantityOfUnitsPerCup, $caloriesPerUnit, $unitName);
     
     while ($stmt->fetch()) {
         

@@ -1,6 +1,3 @@
-
-<?php
-
 <!Doctype html>
 <head>
 <link rel="stylesheet" href="PREP.css" type="text/css" />
