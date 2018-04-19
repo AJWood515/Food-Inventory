@@ -19,13 +19,17 @@
 				<li><a href="listCalories.php">Calorie Counter</a></li>
 				<li><a class="active">Can I make this Recipe?</a></li>
 			</ul>
-
 		</header>
 		<aside>
-			<p>Hello</p>
-		</aside>
-		<main>
-		<p>
+			<h2>Recipe of the week!</h2>
+			<p>Home made Hambugers</p>
+			<img src="images/PrepIcon.png" alt="Prep Logo" class="center">
+			</header>
+			<aside>
+				<p>Hello</p>
+			</aside>
+			<main>
+			<p>
 <?php
 include "PHP_FoodPantryDatabase_Connection.php";
 
@@ -131,10 +135,11 @@ if ($belowZero < 0) {
 ?>
 
 </p>
-		</main>
-		<footer>
-			<p>This site was created for educational purposes only</p>
-		</footer>
+			</main>
+			<footer>
+				<p>This site was created for educational purposes only</p>
+			</footer>
+	
 	</div>
 	<!-- end div container --->
 </body>

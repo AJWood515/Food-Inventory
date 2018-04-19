@@ -30,7 +30,7 @@ include "PHP_FoodPantryDatabase_Connection.php";
 <aside>
 <h2>Recipe of the week!</h2>
 <p>Home made Hambugers</p>
-<img src="images/prepIcon.png" alt="Prep Logo" class="center">
+<img src="images/PrepIcon.png" alt="Prep Logo" class="center">
 </aside>
 <main>
 <p>
