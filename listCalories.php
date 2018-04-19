@@ -1,3 +1,4 @@
+
 <!Doctype html>
 <head>
 <link rel="stylesheet" href="PREP.css" type="text/css" />
@@ -30,8 +31,8 @@
 		</aside>
 		<main>
 		<p>
-    <?php
     include "PHP_FoodPantryDatabase_Connection.php";
+    <?php
     
     try {
         $query = "Select * from ingredients";

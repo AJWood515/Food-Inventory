@@ -14,22 +14,22 @@
 			<ul>
 				<li><a href="home.html">Home</a></li>
 				<li><a href="inventory.php">Inventory</a></li>
-				<li><a href="listCalories.php">Calorie Counter</a></li>
 				<li><a class="active">Can I make this Recipe?</a></li>
+				<li><a href="listCalories.php">Calorie Counter</a></li>
 				<li><a href="calendar.html">Calendar</a></li>
 				<li><a href="contactUs.html">Contact Us</a></li>
 			</ul>
+
 		</header>
 		<aside>
 			<h2>Recipe of the week!</h2>
 			<p>Home made Hambugers</p>
 			<img src="images/PrepIcon.png" alt="Prep Logo" class="center">
-			</header>
-			<aside>
-				<p>Hello</p>
-			</aside>
-			<main>
-			<p>
+
+			<p>Hello</p>
+		</aside>
+		<main>
+		<p>
 <?php
 include "PHP_FoodPantryDatabase_Connection.php";
 
@@ -135,11 +135,11 @@ if ($belowZero < 0) {
 ?>
 
 </p>
-			</main>
-			<footer>
-				<p>This site was created for educational purposes only</p>
-			</footer>
-	
+		</main>
+		<footer>
+			<p>This site was created for educational purposes only</p>
+		</footer>
+
 	</div>
 	<!-- end div container --->
 </body>
