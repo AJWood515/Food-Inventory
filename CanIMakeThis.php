@@ -15,6 +15,7 @@
 			<ul>
 				<li><a href="home.html">Home</a></li>
 				<li><a href="inventory.php">Inventory</a></li>
+				<li><a href="CanIMakeThis.php">Can I make this Recipe?</a></li>
 				<li><a href="listCalories.php">Calorie Counter</a></li>
 				<li><a class="active">Can I make this Recipe?</a></li>
 			</ul>
