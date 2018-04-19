@@ -16,11 +16,21 @@
   <li><a href="home.html">Home</a></li>
   <li><a href="inventory.php">Inventory</a></li>
   <li><a class="active">Calorie Counter</a></li>
+
+  <li><a href="calendar.html">Calendar</a></li>
+  <li><a href="contactUs.html">Contact Us</a></li>
+
 </ul>
 
 </header>
 <aside>
+
+<h2>Recipe of the week!</h2>
+<p>Home made Hambugers</p>
+<img src="images/prepIcon.png" alt="Prep Logo" class="center">
+
 <p>Hello</p>
+
 </aside>
 <main>
 <p>
@@ -45,7 +55,9 @@ try {
     $totalCalories = 0;
 
     ?>
+
 <?php
+
 
     /*
      * This function checks to see if the ingredients are the same unit type, if the recipe calls for 1 tsp of salt, but salt is stored as cups
@@ -56,9 +68,11 @@ try {
         $adjuster = 1;
         if ($unitName == $unit) {
 
+
             $adjuster = 1;
             // there is no conversion needed
         } else if ($unitName == 'tablespoon(s)' && $unit == 'cup(s)') {
+
 
             $adjuster = 0.625;
             // if the recipe calls for 1 tablespoon but the ingredient is stored as cups this converts tablespoon to cups
@@ -184,3 +198,4 @@ $conn = null;
 </div><!-- end div container --->
 </body>
 </html>
+
