@@ -1,3 +1,4 @@
+
 <?php
 
 <!Doctype html>
@@ -18,10 +19,16 @@
     <li><a href="inventory.php">Inventory</a></li>
     <li><a href="CanIMakeThis.php">Can I make this Recipe?</a></li>
     <li><a class="active">Calorie Counter</a></li>
+   <li><a href="calendar.html">Calendar</a></li>
+  <li><a href="contactUs.html">Contact Us</a></li>
     </ul>
     
     </header>
     <aside>
+    <h2>Recipe of the week!</h2>
+    <p>Home made Hambugers</p>
+    <img src="images/prepIcon.png" alt="Prep Logo" class="center">
+
     <p>Hello</p>
     </aside>
     <main>
