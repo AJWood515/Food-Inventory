@@ -1,10 +1,9 @@
-
 <!Doctype html>
 <head>
 <link rel="stylesheet" href="PREP.css" type="text/css" />
 <link rel="icon" href="images/PrepIcon.png" type="image/gif"
 	sizes="16x16">
-<title>Calorie Counter</title>
+<title>Can I Make This Recipe?</title>
 </head>
 <body>
 	<div id="container">
@@ -15,12 +14,18 @@
 			<ul>
 				<li><a href="home.html">Home</a></li>
 				<li><a href="inventory.php">Inventory</a></li>
-				<li><a href="listCalories.php">Calorie Counter</a></li>
 				<li><a class="active">Can I make this Recipe?</a></li>
+				<li><a href="listCalories.php">Calorie Counter</a></li>
+				<li><a href="calendar.html">Calendar</a></li>
+				<li><a href="contactUs.html">Contact Us</a></li>
 			</ul>
 
 		</header>
 		<aside>
+			<h2>Recipe of the week!</h2>
+			<p>Home made Hambugers</p>
+			<img src="images/PrepIcon.png" alt="Prep Logo" class="center">
+
 			<p>Hello</p>
 		</aside>
 		<main>
@@ -95,14 +100,14 @@ if it cant be made, it tells you what ingredients you need.<br><br>";
 
 /* this should compare the recipe table to the ingredients list table */
 
-$recipeQuery = "Select ingredientName,  amount , quantity , unit, caloriesPerUnit, unitName
+$recipeQuery = "Select ingredientName,  amount , quantity , unit, quantityOfUnitsPerCup, caloriesPerUnit, unitName
                     from breadRecipe cr, ingredients i
                     where cr.ingredientName = i.name ;";
 
 $belowZero = 0;
 if ($stmt = $con->prepare($recipeQuery)) {
     $stmt->execute();
-    $stmt->bind_result($ingredientName, $amount, $quantity, $unit, $caloriesPerUnit, $unitName);
+    $stmt->bind_result($ingredientName, $amount, $quantity, $unit, $quantityOfUnitsPerCup, $caloriesPerUnit, $unitName);
     
     while ($stmt->fetch()) {
         
@@ -134,6 +139,7 @@ if ($belowZero < 0) {
 		<footer>
 			<p>This site was created for educational purposes only</p>
 		</footer>
+
 	</div>
 	<!-- end div container --->
 </body>

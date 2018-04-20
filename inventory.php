@@ -20,6 +20,7 @@ include "PHP_FoodPantryDatabase_Connection.php";
 <ul>
   <li><a href="home.html">Home</a></li>
   <li><a class="active">Inventory</a></li>
+  <li><a href="CanIMakeThis.php">Can I make this Recipe?</a></li>
   <li><a href="listCalories.php">Calorie Counter</a></li>
   <li><a href="calendar.html">Calendar</a></li>
   <li><a href="contactUs.html">Contact Us</a></li>
@@ -29,7 +30,7 @@ include "PHP_FoodPantryDatabase_Connection.php";
 <aside>
 <h2>Recipe of the week!</h2>
 <p>Home made Hambugers</p>
-<img src="images/prepIcon.png" alt="Prep Logo" class="center">
+<img src="images/PrepIcon.png" alt="Prep Logo" class="center">
 </aside>
 <main>
 <p>
