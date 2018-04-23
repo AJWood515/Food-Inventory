@@ -32,9 +32,9 @@
 		</aside>
 		<main>
 		<p>
-    include "PHP_FoodPantryDatabase_Connection.php";
+   
     <?php
-
+ include "PHP_FoodPantryDatabase_Connection.php";
     try {
         $query = "Select * from ingredients";
         /*
