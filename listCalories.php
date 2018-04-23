@@ -15,6 +15,7 @@
 			<ul>
 				<li><a href="home.html">Home</a></li>
 				<li><a href="inventory.php">Inventory</a></li>
+				<li><a href="Insert.php">Insert Ingredient</a></li>
 				<li><a href="CanIMakeThis.php">Can I make this Recipe?</a></li>
 				<li><a class="active">Calorie Counter</a></li>
 				<li><a href="calendar.html">Calendar</a></li>
@@ -25,7 +26,7 @@
 		<aside>
 			<h2>Recipe of the week!</h2>
 			<p>Home made Hambugers</p>
-			<img src="images/PrepIcon.png" alt="Prep Logo" class="center">
+			<img src="images/PrepIcon.png" alt="Prep Logo" class="center" width = "60%" />
 
 			<p>Hello</p>
 		</aside>
@@ -33,16 +34,16 @@
 		<p>
     include "PHP_FoodPantryDatabase_Connection.php";
     <?php
-    
+
     try {
         $query = "Select * from ingredients";
         /*
          * in the recipe query 'amount' is the cookie recipe version of quantity
          * I changed the column name to more easily use the search statement in php
          */
-        
+
         $recipeName = "cakeRecipe";
-        
+
         $recipeQuery = "Select ingredientName,  amount , quantity , unit, caloriesPerUnit, unitName
                     from greenSaladRecipe cr, ingredients i
                     where cr.ingredientName = i.name
@@ -53,7 +54,7 @@
                     ;";
         $calPerCup;
         $totalCalories = 0;
-        
+
         ?>
 <?php
 
@@ -154,8 +155,9 @@ In this case, a bread recipe.<br><br>";
 
 <?php
         
+
         /* This loop lists out how many calories are in each ingredient in the provided ingredient table */
-        
+
         /* I hope to be able to compare this table called calorieTable to a recipe and calculate total calories */
         /*
          * echo "------------------------------------------------------------------";
