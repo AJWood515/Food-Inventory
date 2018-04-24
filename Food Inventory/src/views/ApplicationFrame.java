@@ -9,9 +9,9 @@ public class ApplicationFrame
 {
 
 	private static JFrame frame;
-	private static JPanel activePanel;
-	private static Menu menuPanel = new Menu();
-	private static Recipes recipesPanel = new Recipes();
+	private static JPanel activePanel;//stores the visible JPanel
+	private static Menu menuPanel = new Menu();//Creates a Menu JPanel
+	private static Recipes recipesPanel = new Recipes();//Creates a Recipes JPanel
 	
 
 	/**
@@ -55,16 +55,19 @@ public class ApplicationFrame
 		activePanel = menuPanel;
 		frame.add(activePanel);
 	}
-	
+	/**
+	 * Changes the visible JPanel
+	 * @param newPanel is a string value to determine which JPanel to display
+	 */
     public static void setPanel(String newPanel)
 	{
-    	if(newPanel.equals("Menu"))
+    	if(newPanel.equals("Menu"))//Makes the Menu JPanel visible
     	{
     		activePanel = menuPanel;
     		frame.setContentPane(activePanel);
     		frame.revalidate();
     	}
-        else if(newPanel.equals("Recipes"))
+        else if(newPanel.equals("Recipes"))//Makes the Recipes JPanel visible
     	{
     	   activePanel = recipesPanel;    	
      	   frame.setContentPane(activePanel);
