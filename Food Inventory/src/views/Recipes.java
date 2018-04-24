@@ -14,7 +14,7 @@ import javax.swing.SwingConstants;
 
 public class Recipes extends JPanel 
 {
-	private JTextField txtRecipes;
+	
 
 	/**
 	 * Create the panel.
@@ -36,6 +36,7 @@ public class Recipes extends JPanel
 		scrollPane.setViewportView(list);
 		
 		//Label above the scroll pane
+		JTextField txtRecipes;
 		txtRecipes = new JTextField();
 		txtRecipes.setHorizontalAlignment(SwingConstants.CENTER);
 		txtRecipes.setText("Recipes");

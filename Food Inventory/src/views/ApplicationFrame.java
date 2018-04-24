@@ -12,6 +12,7 @@ public class ApplicationFrame
 	private static JPanel activePanel;//stores the visible JPanel
 	private static Menu menuPanel = new Menu();//Creates a Menu JPanel
 	private static Recipes recipesPanel = new Recipes();//Creates a Recipes JPanel
+	private static Inventory inventoryPanel = new Inventory();//Creates a Inventory JPanel
 	
 
 	/**
@@ -67,9 +68,17 @@ public class ApplicationFrame
     		frame.setContentPane(activePanel);
     		frame.revalidate();
     	}
+    	
         else if(newPanel.equals("Recipes"))//Makes the Recipes JPanel visible
     	{
     	   activePanel = recipesPanel;    	
+     	   frame.setContentPane(activePanel);
+           frame.revalidate();
+    	}
+    	
+        else if(newPanel.equals("Inventory"))//Makes the Inventory JPanel visible
+    	{
+    	   activePanel = inventoryPanel;    	
      	   frame.setContentPane(activePanel);
            frame.revalidate();
     	}
