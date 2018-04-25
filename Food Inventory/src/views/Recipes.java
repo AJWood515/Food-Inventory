@@ -46,7 +46,7 @@ public class Recipes extends JPanel
 		//Creates the View Recipe button
 		JButton btnViewRecipie = new JButton("View Recipe");
 		springLayout.putConstraint(SpringLayout.SOUTH, btnViewRecipie, 35, SpringLayout.NORTH, this);
-		springLayout.putConstraint(SpringLayout.EAST, scrollPane, -140, SpringLayout.WEST, btnViewRecipie);
+		springLayout.putConstraint(SpringLayout.EAST, scrollPane, -140, SpringLayout.WEST, btnViewRecipie);//Constraint for the scroll pane
 		springLayout.putConstraint(SpringLayout.NORTH, btnViewRecipie, 10, SpringLayout.NORTH, this);
 		springLayout.putConstraint(SpringLayout.WEST, btnViewRecipie, -163, SpringLayout.EAST, this);
 		springLayout.putConstraint(SpringLayout.EAST, btnViewRecipie, -10, SpringLayout.EAST, this);

@@ -43,7 +43,7 @@ public class Inventory extends JPanel
 		//Creates the Add Item button
 		JButton btnAddItem = new JButton("Add Item(s)");
 		springLayout.putConstraint(SpringLayout.SOUTH, btnAddItem, 35, SpringLayout.NORTH, this);
-		springLayout.putConstraint(SpringLayout.EAST, scrollPane, -140, SpringLayout.WEST, btnAddItem);
+		springLayout.putConstraint(SpringLayout.EAST, scrollPane, -140, SpringLayout.WEST, btnAddItem);//Constraint for the scroll pane
 		springLayout.putConstraint(SpringLayout.NORTH, btnAddItem, 10, SpringLayout.NORTH, this);
 		springLayout.putConstraint(SpringLayout.WEST, btnAddItem, -163, SpringLayout.EAST, this);
 		springLayout.putConstraint(SpringLayout.EAST, btnAddItem, -10, SpringLayout.EAST, this);
