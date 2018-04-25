@@ -1,4 +1,4 @@
-<!Doctype html>
+
 
 <?php
 
@@ -12,4 +12,3 @@ $dbname="Pantry";
 
 
  ?>
-</html>
