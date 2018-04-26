@@ -21,45 +21,42 @@ session_start();
 				<li><a href="inventory.php">Inventory</a></li>
 				<li><a href="Insert.php">Insert Ingredient</a></li>
 				<li><a href="CanIMakeThis.php">Can I make this Recipe?</a></li>
-				<li><a class="active">Calorie Counter</a></li>
+				<li><a href="listCalories.php">Calorie Counter</a></li>
 				<li><a href="calendar.html">Calendar</a></li>
 				<li><a href="contactUs.html">Contact Us</a></li>
 			</ul>
 
 		</header>
 		<aside>
+
+
+
 			<h2>Recipe of the week!</h2>
+
 			<p>Home made cookies!</p>
+
 			<img src="images/PrepIcon.png" alt="Prep Logo" class="center"
 				width="60%" />
 
-			<p>Hello</p>
 		</aside>
 		<main>
 		<form id="form2" name="form2" method="post" action="recipes.php">
 			<h3>Choose A Recipe</h3>
 			<table>
 				<tr>
-					<td>Cookie Recipe:</td>
+					<td>Cookie Recipe:	</td>
 					<td><p>
 						
 						<ul>
-
 							<li><a href="recipes.php">Cookie Recipe</a></li>
 							<li><a href="breadRecipe.php">Bread Recipe</a></li>
 							<li><a href="garlicChickenRecipe.php">Garlic Chicken</a></li>
 							<li><a href="cakeRecipe.php">Cake</a></li>
 							<li><a href="greenSaladRecipe.php">Green Salad</a></li>
-
-
 						</ul>
-						</p></td>
-					
-				</tr>
-			</table>
 
-		</form>
-		<p>
+						</form>
+						<p>
     		
     <?php
     include "PHP_FoodPantryDatabase_Connection.php";
@@ -137,9 +134,9 @@ session_start();
             }
             return $adjuster;
         }
-        echo "Select a Recipe to see its caloric content..<br><br>";
+    
         
-        /* this should compare the recipe table to the ingredients list table */
+        echo "Select a Recipe to see its caloric content..<br><br>";
         
         if ($stmt = $con->prepare($recipeQuery)) {
             $stmt->execute();
@@ -174,12 +171,10 @@ session_start();
     ?>
 
 
-		</p>
-		</main>
-		<footer>
-			<p>This site was created for educational purposes only</p>
-		</footer>
-	</div>
-	<!-- end div container --->
+		</p> </main> <footer>
+							<p>This site was created for educational purposes only</p>
+						</footer>
+						</div> <!-- end div container --->
+
 </body>
 </html>
