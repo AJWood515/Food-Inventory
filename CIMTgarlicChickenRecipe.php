@@ -51,7 +51,7 @@
 						</p></td>
 
 				</tr>
-				<td>Cookie Recipe:</td>
+				<td>Garlic Chicken Recipe:</td>
 			</table>
 
 		</form>
@@ -128,7 +128,7 @@ If the recipe can't be made, it will tell you what ingredients you need.<br><br>
 /* this should compare the recipe table to the ingredients list table */
 
 $recipeQuery = "Select ingredientName,  amount , quantity , unit, quantityOfUnitsPerCup, caloriesPerUnit, unitName
-                    from cookieRecipe cr, ingredients i
+                    from garlicChickenRecipe cr, ingredients i
                     where cr.ingredientName = i.name ;";
 
 $belowZero = 0;
