@@ -5,14 +5,18 @@ import java.awt.GridLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import common.DBGrabber;
+
 public class ApplicationFrame 
 {
 
 	private static JFrame frame;
+	private static DBGrabber dbData = new DBGrabber();
 	private static JPanel activePanel;//stores the visible JPanel
 	private static Menu menuPanel = new Menu();//Creates a Menu JPanel
-	private static Recipes recipesPanel = new Recipes();//Creates a Recipes JPanel
+	private static Recipes recipesPanel = new Recipes();//Creates a Recipes JPanel	
 	private static Inventory inventoryPanel = new Inventory();//Creates a Inventory JPanel
+	
 	
 
 	/**
@@ -49,8 +53,9 @@ public class ApplicationFrame
 	 */
 	private void initialize()
 	{
+		dbData.grabInventory();
 		frame = new JFrame();
-		frame.setBounds(100, 100, 750, 600);
+		frame.setBounds(100, 100, 1050, 800);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(new GridLayout(1,1));
 		activePanel = menuPanel;
@@ -82,6 +87,11 @@ public class ApplicationFrame
      	   frame.setContentPane(activePanel);
            frame.revalidate();
     	}
+    }
+    
+    public static DBGrabber getDbData()
+    {
+    	return dbData;
     }
 
 }

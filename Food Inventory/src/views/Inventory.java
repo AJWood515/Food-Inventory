@@ -2,7 +2,9 @@ package views;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JPanel;
@@ -11,13 +13,22 @@ import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 import javax.swing.SwingConstants;
 
+import java.awt.Font;
+
 public class Inventory extends JPanel 
 {
+	DefaultListModel<String> inventoryList = new DefaultListModel<String>();
 	/**
 	 * Create the panel.
 	 */
 	public Inventory() 
-	{
+	{		
+		Vector<String> tempList = ApplicationFrame.getDbData().getInventoryList();
+		for(int i = 0; i < tempList.size(); i++)
+		{
+			inventoryList.addElement(tempList.get(i));
+		}
+		
 		SpringLayout springLayout = new SpringLayout();
 		setLayout(springLayout);
 		
@@ -29,7 +40,8 @@ public class Inventory extends JPanel
 		add(scrollPane);
 		
 		//Creates the JList to put in the scroll pane
-		JList list = new JList();
+		JList list = new JList(inventoryList);
+		list.setFont(new Font("monospaced", (list.getFont()).getStyle(), (list.getFont()).getSize()));
 		scrollPane.setViewportView(list);
 		
 		//Label above the scroll pane
