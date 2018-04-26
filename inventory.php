@@ -1,47 +1,9 @@
+
 <!DOCTYPE html>
 <!-- needs refactoring -->
 <html>
 <?php
-session_start();
-// user function for update and delete
 include "PHP_FoodPantryDatabase_Connection.php";
-$user = $_SESSION['user'];
-$message = $_SESSION['message'];
-
-  function htmlTable(){
-    global $user;
-    echo"<table border='1'>
-  	   <tr>
-  		     <td>Name</td>
-  	       <td>Quantity</td>
-           <td>Calories per Unit</td>
-           <td>Quantity of Units per Cup</td>
-           <td>Unit</td>
-           <td>Ingredient Type</td>";
-           if($user){
-             echo"
-             <td>UPDATE</td>
-		         <td>DELETE</td>";
-           }
-
-  }
-
-  function ingredientTable(){
-      global $user, $name, $quantity, $caloriesPerUnit, $quantityOfUnitsPerCup, $unit, $ingredients;
-      echo "<tr>";
-        echo "<td>".$name."</td>";
-        echo "<td>".$quantity."</td>";
-        echo "<td>".$caloriesPerUnit."</td>";
-        echo "<td>".$quantityOfUnitsPerCup."</td>";
-        echo "<td>".$unit."</td>";
-        echo "<td>".$ingredients."</td>";
-        if($user){
-          echo "<td><a href='updateInventoryForm.php?ingredientID=" . $name . "'>Update</a></td>";
-          echo "<td><a href='deleteInventory.php?ingredientID=" . $name . "'>Delete</a></td>";
-        }
-        echo "</tr>";
-    }
-
 ?>
 <head>
 <link rel="stylesheet" href="PREP.css" type="text/css" />
@@ -63,8 +25,6 @@ $message = $_SESSION['message'];
   <li><a href="listCalories.php">Calorie Counter</a></li>
   <li><a href="calendar.html">Calendar</a></li>
   <li><a href="contactUs.html">Contact Us</a></li>
-  <li><a href="signIn.php">Sign In</a></li>
-  <li><a href="signUp.php">Sign Up</a></li>
 </ul>
 
 </header>
@@ -75,147 +35,334 @@ $message = $_SESSION['message'];
 </aside>
 <main>
 <p>
-  <?php echo "<h2> $message </h2>" ?>
   <h3>Vegetables</h3>
+  <table border='1'>
+	   <tr>
+		     <td>Name</td>
+	       <td>Quantity</td>
+         <td>Calories per Unit</td>
+         <td>Quantity of Units per Cup</td>
+         <td>Unit</td>
+         <td>Ingredient Type</td>
+
+
   <?php
-    htmlTable();
+  //try{
     $query = "Select * from ingredients Where ingredientType = 'vegetable'";
   if ($stmt = $con->prepare($query)) {
       $stmt->execute();
       $stmt->bind_result($name, $quantity, $caloriesPerUnit, $quantityOfUnitsPerCup, $unit, $ingredients);
       while ($stmt->fetch()) {
-        ingredientTable();
+        echo "<tr>";
+          echo "<td>".$name."</td>";
+          echo "<td>".$quantity."</td>";
+          echo "<td>".$caloriesPerUnit."</td>";
+          echo "<td>".$quantityOfUnitsPerCup."</td>";
+          echo "<td>".$unit."</td>";
+          echo "<td>".$ingredients."</td>";
+        echo "</tr>";
       }
       $stmt->close();
   }
+  /*catch (PDOException $e){
+    echo "Error: ". $e->getMessage();
+  }*/
+
   ?>
 </table>
 </p>
 <p>
 <h3>Fruits</h3>
+<table border='1'>
+   <tr>
+       <td>Name</td>
+       <td>Quantity</td>
+       <td>Calories per Unit</td>
+       <td>Quantity of Units per Cup</td>
+       <td>Unit</td>
+       <td>Ingredient Type</td>
+
+
 <?php
-  htmlTable();
+//try{
   $query = "Select * from ingredients Where ingredientType = 'fruit'";
 if ($stmt = $con->prepare($query)) {
     $stmt->execute();
     $stmt->bind_result($name, $quantity, $caloriesPerUnit, $quantityOfUnitsPerCup, $unit, $ingredients);
     while ($stmt->fetch()) {
-      ingredientTable();
+      echo "<tr>";
+        echo "<td>".$name."</td>";
+        echo "<td>".$quantity."</td>";
+        echo "<td>".$caloriesPerUnit."</td>";
+        echo "<td>".$quantityOfUnitsPerCup."</td>";
+        echo "<td>".$unit."</td>";
+        echo "<td>".$ingredients."</td>";
+      echo "</tr>";
     }
     $stmt->close();
 }
+/*catch (PDOException $e){
+  echo "Error: ". $e->getMessage();
+}*/
+
 ?>
 </table>
 </p>
 <p>
 <h3>Grain</h3>
+<table border='1'>
+   <tr>
+       <td>Name</td>
+       <td>Quantity</td>
+       <td>Calories per Unit</td>
+       <td>Quantity of Units per Cup</td>
+       <td>Unit</td>
+       <td>Ingredient Type</td>
+
+
 <?php
-  htmlTable();
+//try{
   $query = "Select * from ingredients Where ingredientType = 'grain'";
 if ($stmt = $con->prepare($query)) {
     $stmt->execute();
     $stmt->bind_result($name, $quantity, $caloriesPerUnit, $quantityOfUnitsPerCup, $unit, $ingredients);
     while ($stmt->fetch()) {
-      ingredientTable();
+      echo "<tr>";
+        echo "<td>".$name."</td>";
+        echo "<td>".$quantity."</td>";
+        echo "<td>".$caloriesPerUnit."</td>";
+        echo "<td>".$quantityOfUnitsPerCup."</td>";
+        echo "<td>".$unit."</td>";
+        echo "<td>".$ingredients."</td>";
+      echo "</tr>";
     }
     $stmt->close();
 }
+/*catch (PDOException $e){
+  echo "Error: ". $e->getMessage();
+}*/
+
 ?>
 </table>
 </p>
 <p>
 <h3>Liquid</h3>
+<table border='1'>
+   <tr>
+       <td>Name</td>
+       <td>Quantity</td>
+       <td>Calories per Unit</td>
+       <td>Quantity of Units per Cup</td>
+       <td>Unit</td>
+       <td>Ingredient Type</td>
+
+
 <?php
-htmlTable();
+//try{
   $query = "Select * from ingredients Where ingredientType = 'liquid'";
 if ($stmt = $con->prepare($query)) {
     $stmt->execute();
     $stmt->bind_result($name, $quantity, $caloriesPerUnit, $quantityOfUnitsPerCup, $unit, $ingredients);
     while ($stmt->fetch()) {
-      ingredientTable();
+      echo "<tr>";
+        echo "<td>".$name."</td>";
+        echo "<td>".$quantity."</td>";
+        echo "<td>".$caloriesPerUnit."</td>";
+        echo "<td>".$quantityOfUnitsPerCup."</td>";
+        echo "<td>".$unit."</td>";
+        echo "<td>".$ingredients."</td>";
+      echo "</tr>";
     }
     $stmt->close();
 }
+/*catch (PDOException $e){
+  echo "Error: ". $e->getMessage();
+}*/
+
 ?>
 </table>
 </p>
 <p>
 <h3>Dairy</h3>
+<table border='1'>
+   <tr>
+       <td>Name</td>
+       <td>Quantity</td>
+       <td>Calories per Unit</td>
+       <td>Quantity of Units per Cup</td>
+       <td>Unit</td>
+       <td>Ingredient Type</td>
+
+
 <?php
-htmlTable();
+//try{
   $query = "Select * from ingredients Where ingredientType = 'dairy'";
 if ($stmt = $con->prepare($query)) {
     $stmt->execute();
     $stmt->bind_result($name, $quantity, $caloriesPerUnit, $quantityOfUnitsPerCup, $unit, $ingredients);
     while ($stmt->fetch()) {
-      ingredientTable();
+      echo "<tr>";
+        echo "<td>".$name."</td>";
+        echo "<td>".$quantity."</td>";
+        echo "<td>".$caloriesPerUnit."</td>";
+        echo "<td>".$quantityOfUnitsPerCup."</td>";
+        echo "<td>".$unit."</td>";
+        echo "<td>".$ingredients."</td>";
+      echo "</tr>";
     }
     $stmt->close();
 }
+/*catch (PDOException $e){
+  echo "Error: ". $e->getMessage();
+}*/
+
 ?>
 </table>
 </p>
 <p>
 <h3>Protein</h3>
+<table border='1'>
+   <tr>
+       <td>Name</td>
+       <td>Quantity</td>
+       <td>Calories per Unit</td>
+       <td>Quantity of Units per Cup</td>
+       <td>Unit</td>
+       <td>Ingredient Type</td>
+
+
 <?php
-htmlTable();
+//try{
   $query = "Select * from ingredients Where ingredientType = 'protein'";
 if ($stmt = $con->prepare($query)) {
     $stmt->execute();
     $stmt->bind_result($name, $quantity, $caloriesPerUnit, $quantityOfUnitsPerCup, $unit, $ingredients);
     while ($stmt->fetch()) {
-      ingredientTable();
+      echo "<tr>";
+        echo "<td>".$name."</td>";
+        echo "<td>".$quantity."</td>";
+        echo "<td>".$caloriesPerUnit."</td>";
+        echo "<td>".$quantityOfUnitsPerCup."</td>";
+        echo "<td>".$unit."</td>";
+        echo "<td>".$ingredients."</td>";
+      echo "</tr>";
     }
     $stmt->close();
 }
+/*catch (PDOException $e){
+  echo "Error: ". $e->getMessage();
+}*/
+
 ?>
 </table>
 </p>
 <p>
 <h3>Miscellaneous</h3>
+<table border='1'>
+   <tr>
+       <td>Name</td>
+       <td>Quantity</td>
+       <td>Calories per Unit</td>
+       <td>Quantity of Units per Cup</td>
+       <td>Unit</td>
+       <td>Ingredient Type</td>
+
+
 <?php
-htmlTable();
+//try{
   $query = "Select * from ingredients Where ingredientType = 'misc'";
 if ($stmt = $con->prepare($query)) {
     $stmt->execute();
     $stmt->bind_result($name, $quantity, $caloriesPerUnit, $quantityOfUnitsPerCup, $unit, $ingredients);
     while ($stmt->fetch()) {
-      ingredientTable();
+      echo "<tr>";
+        echo "<td>".$name."</td>";
+        echo "<td>".$quantity."</td>";
+        echo "<td>".$caloriesPerUnit."</td>";
+        echo "<td>".$quantityOfUnitsPerCup."</td>";
+        echo "<td>".$unit."</td>";
+        echo "<td>".$ingredients."</td>";
+      echo "</tr>";
     }
     $stmt->close();
 }
+/*catch (PDOException $e){
+  echo "Error: ". $e->getMessage();
+}*/
+
 ?>
 </table>
 </p>
 <p>
 <h3>Spice</h3>
+<table border='1'>
+   <tr>
+       <td>Name</td>
+       <td>Quantity</td>
+       <td>Calories per Unit</td>
+       <td>Quantity of Units per Cup</td>
+       <td>Unit</td>
+       <td>Ingredient Type</td>
+
+
 <?php
-htmlTable();
+//try{
   $query = "Select * from ingredients Where ingredientType = 'spice'";
 if ($stmt = $con->prepare($query)) {
     $stmt->execute();
     $stmt->bind_result($name, $quantity, $caloriesPerUnit, $quantityOfUnitsPerCup, $unit, $ingredients);
     while ($stmt->fetch()) {
-      ingredientTable();
+      echo "<tr>";
+        echo "<td>".$name."</td>";
+        echo "<td>".$quantity."</td>";
+        echo "<td>".$caloriesPerUnit."</td>";
+        echo "<td>".$quantityOfUnitsPerCup."</td>";
+        echo "<td>".$unit."</td>";
+        echo "<td>".$ingredients."</td>";
+      echo "</tr>";
     }
     $stmt->close();
 }
+/*catch (PDOException $e){
+  echo "Error: ". $e->getMessage();
+}*/
+
 ?>
 </table>
 </p>
 <p>
 <h3>Herbs</h3>
+<table border='1'>
+   <tr>
+       <td>Name</td>
+       <td>Quantity</td>
+       <td>Calories per Unit</td>
+       <td>Quantity of Units per Cup</td>
+       <td>Unit</td>
+       <td>Ingredient Type</td>
+
+
 <?php
-htmlTable();
+//try{
   $query = "Select * from ingredients Where ingredientType = 'herb'";
 if ($stmt = $con->prepare($query)) {
     $stmt->execute();
     $stmt->bind_result($name, $quantity, $caloriesPerUnit, $quantityOfUnitsPerCup, $unit, $ingredients);
     while ($stmt->fetch()) {
-      ingredientTable();
+      echo "<tr>";
+        echo "<td>".$name."</td>";
+        echo "<td>".$quantity."</td>";
+        echo "<td>".$caloriesPerUnit."</td>";
+        echo "<td>".$quantityOfUnitsPerCup."</td>";
+        echo "<td>".$unit."</td>";
+        echo "<td>".$ingredients."</td>";
+      echo "</tr>";
     }
     $stmt->close();
 }
+/*catch (PDOException $e){
+  echo "Error: ". $e->getMessage();
+}*/
 $con = null;
 ?>
 </table>

@@ -19,8 +19,6 @@
 				<li><a href="listCalories.php">Calorie Counter</a></li>
 				<li><a href="calendar.html">Calendar</a></li>
 				<li><a href="contactUs.html">Contact Us</a></li>
-				<li><a href="signIn.php">Sign In</a></li>
-			  <li><a href="signUp.php">Sign Up</a></li>
 			</ul>
 
 		</header>
