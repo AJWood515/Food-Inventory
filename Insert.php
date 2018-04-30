@@ -69,9 +69,11 @@ function validName(){
     	}
     }
     function validUnits(){
+
   	global $units, $unitsErrMsg, $validForm;
   	if ($units == "") {
-  		$radioErrMsg = "Please select one of the options.";
+
+  		$unitsErrMsg = "Please select one of the options.";
   		$validForm = false;
   	}
   }
@@ -108,7 +110,8 @@ function validName(){
     $inserted = $query->affected_rows;
 
     if ($inserted >0){
-      $message = "You have successfully inserted the ingredient";
+      $_SESSION['message'] = "You have successfully inserted the ingredient";
+			header('Location: inventory.php');
     }
     else {
       $message = "Something went wrong";

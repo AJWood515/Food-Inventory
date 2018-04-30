@@ -63,7 +63,7 @@ function validName(){
     function validUnits(){
   	global $units, $unitsErrMsg, $validForm;
   	if ($units == "") {
-  		$radioErrMsg = "Please select one of the options.";
+  		$unitsErrMsg = "Please select one of the options.";
   		$validForm = false;
   	}
   }
