@@ -8,7 +8,12 @@ $password = "";
 $usernameErrMsg ="";
 $passwordErrMsg = "";
 $validForm = false;
-$message = $_SESSION['message'];
+if (isset($_SESSION['message'])){
+  $message = $_SESSION['message'];
+}
+else{
+  $message = "";
+}
 
 function validateUsername(){
   global $username, $usernameErrMsg, $validForm;
@@ -29,7 +34,7 @@ function validatePassword(){
 
 
 if(isset($_POST['submit'])){
-//echo print_r($_POST);
+
   $username = trim($_POST['username']);
   $password = trim($_POST['password']);
   $validForm = true;
@@ -45,8 +50,7 @@ if(isset($_POST['submit'])){
     $inserted = $query->affected_rows;
 
     if($inserted = 0){
-        $_SESSION['message'] =" Sorry something went wrong try again.";
-        header('Location: signUp.php');
+        $message =" Sorry something went wrong try again.";
     }
     else {
       $_SESSION['message'] = "Welcome user";
@@ -88,7 +92,7 @@ if(isset($_POST['submit'])){
 
 </header>
 
-<form id="form1" name="form1" method="post" action="signIn.php">
+<form id="form1" name="form1" method="post" action="signUp.php">
 <p>
   <?php echo $message; ?>
   <br/>

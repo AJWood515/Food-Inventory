@@ -5,8 +5,18 @@
 session_start();
 // user function for update and delete
 include "PHP_FoodPantryDatabase_Connection.php";
-$user = $_SESSION['user'];
-$message = $_SESSION['message'];
+if (isset($_SESSION['message'])){
+  $message = $_SESSION['message'];
+}
+else{
+  $message = "";
+}
+if (isset($_SESSION['user'])){
+  $user =  $_SESSION['user'];
+}
+else{
+  $user = "";
+}
 
   function htmlTable(){
     global $user;
@@ -75,7 +85,16 @@ $message = $_SESSION['message'];
 </aside>
 <main>
 <p>
-  <?php echo "<h2> $message </h2>" ?>
+  <?php echo "<h2> $message </h2>";
+  if($user){
+  echo "<p>
+    <form id='form1' name='form1' method='post' action='logout.php'>
+    <input type='submit' name='submit' id='button' value='Log Out' />
+    </form>
+    </p>
+  ";
+  }
+  ?>
   <h3>Vegetables</h3>
   <?php
     htmlTable();

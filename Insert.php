@@ -1,5 +1,10 @@
 
 <?php
+session_start();
+$user = $_SESSION['user'];
+if(!$user){
+	header("Location: signIn.php");
+}
 
 include "PHP_FoodPantryDatabase_Connection.php";
 

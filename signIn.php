@@ -6,6 +6,7 @@ $username = "";
 $password = "";
 $usernameErrMsg ="";
 $passwordErrMsg = "";
+$name ="";
 $validForm = false;
 
 function validateUsername(){
@@ -27,7 +28,7 @@ function validatePassword(){
 
 
 if(isset($_POST['submit'])){
-//echo print_r($_POST);
+
   $username = trim($_POST['username']);
   $password = trim($_POST['password']);
   $validForm = true;
@@ -43,10 +44,10 @@ if(isset($_POST['submit'])){
     $inserted = $query->affected_rows;
     $result = $query->fetch();
 
-    }
+
 
     if($username == $name){
-      $_SESSION['message'] = "Welcome user";
+      $_SESSION['message'] = "Welcome user.";
       $_SESSION['user'] = true;
       header('Location: inventory.php');
     }
@@ -55,7 +56,17 @@ if(isset($_POST['submit'])){
     $_SESSION['message'] = "Sorry you are not a user. Please sign up.</h3>";
     header("Location: signUp.php");
     }
+    if($password == $pass){
+      $_SESSION['message'] = "Welcome user.";
+      $_SESSION['user'] = true;
+      header('Location: inventory.php');
+    }
+    else {
 
+    $_SESSION['message'] = "Sorry you are not a user. Please sign up.</h3>";
+    header("Location: signUp.php");
+    }
+  }
 
   }
 
